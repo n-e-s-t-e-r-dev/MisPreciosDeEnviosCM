@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Envios CM | Precio</title>
+    <style>
+      /* Reset básico para eliminar márgenes y padding predeterminado */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e0f7fa; /* Color aqua de fondo */
+        color: #333;
+        padding: 20px;
+      }
+      /* Animaciones para el fondo */
+      @keyframes backgroundAnimation {
+        0% {
+          background-color: #e0f7fa;
+        }
+        50% {
+          background-color: #80deea;
+        }
+        100% {
+          background-color: #e0f7fa;
+        }
+      }
+
+      body {
+        animation: backgroundAnimation 5s infinite;
+      }
+
+      h2 {
+        color: #00bcd4; /* Aqua */
+      }
+
+      h4 {
+        font-size: 0.9rem;
+        color: #444;
+      }
+
+      /* Sección de introducción */
+      .intro {
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .intro img {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .intro h2 {
+        color: #00bcd4;
+        margin-top: 10px;
+      }
+
+      /* Estilos para el selector de precios */
+      #price-selector {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        list-style: none;
+        margin-top: 20px;
+      }
+
+      #price-selector li {
+        cursor: pointer;
+        font-weight: bold;
+        padding: 10px;
+        transition: color 0.3s;
+      }
+
+      #price-selector li:hover,
+      #price-selector .selected {
+        color: #00bcd4; /* Aqua */
+      }
+
+      /* Sección de tarjetas de precios */
+      .pricing-cards {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+      }
+
+      /* Estilo común para las tarjetas */
+      .pricing-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 30%;
+        text-align: center;
+      }
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .pricing-card h3 {
+        color: #333;
+      }
+
+      .pricing-card span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .pricing-card s {
+        color: #ccc;
+        font-size: 1rem;
+        margin-left: 10px;
+      }
+
+      .pricing-card i {
+        font-size: 0.9rem;
+        color: #777;
+      }
+
+      .pricing-card ul {
+        list-style: none;
+        margin-top: 15px;
+      }
+
+      .pricing-card ul li {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+      }
+
+      .pricing-card button {
+        background-color: #00bcd4; /* Aqua */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 15px;
+      }
+
+      .pricing-card button:hover {
+        background-color: #0098a6;
+      }
+      .intro_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .intro_container img {
+        width: 10%;
+      }
+      .intro_container h2 {
+        font-size: 3.5rem;
+        font-weight: 900;
+      }
+      .intro_span {
+        font-size: x-large;
+        font-weight: 900;
+      }
+      .mi_li {
+        font-size: x-large;
+        font-weight: 900;
+      }
+      .selected {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 12px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="intro">
+        <div class="intro_container">
+          <img src="/img/pricing-title.gif" alt="pricing-title Envios CM" />
+          <h2>Precios sencillos y asequibles</h2>
+        </div>
+        <span class="intro_span"
+          ><p>Precios seleccionados especialmente para ti.</p></span
+        >
+        <div>
+          <ul id="price-selector">
+            <li data-plan="monthly" class="mi_li">Mensual</li>
+            <li data-plan="yearly" class="mi_li">12 Meses</li>
+            <li data-plan="biennial" class="selected mi_li">24 Meses</li>
+          </ul>
+          <p class="intro_span">
+            Oferta anticipada para nuevos usuarios: 30 % de descuento adicional.
+            Utilizar código <span style="color: brown">NEWUSER3</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="pricing-cards">
+        <div class="pricing-card" data-plan="basic">
+          <h3 style="font-size: x-large; font-weight: 900;">Basico</h3>
+          <span style="color: #0098a6;" id="price-basic">$6 / mes</span><br />
+          <s
+            style="color: aqua; font-weight: 900; font-size: x-large"
+            id="discounted-price-basic"
+            >$8.6</s
+          ><br />
+          <i id="billing-basic"
+            >Se facturará $72 por 12 meses de servicio por usuario.</i
+          ><br />
+          <a target="_blank" id="buy-basic" data-plan="basic"
+            ><button>Comprar</button></a
+          >
+          <h4>
+            Transferencia bancaria y PayPal también disponibles - Haga clic aquí
+          </h4>
+          <ul>
+            <li>Todas las funciones son gratuitas</li>
+            <li>Llamar al soporte técnico</li>
+            <li>Sin intervalo de tiempo mínimo</li>
+            <li>Procesamiento por lotes</li>
+            <li>Respuestas rápidas</li>
+            <li>Exportación de contactos de grupo</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card" data-plan="advance">
+          <h3 style="font-size: x-large; font-weight: 900;">Advanzado</h3>
+          <span style="color: #0098a6;" id="price-advance">$10 / mes</span><br />
+          <s
+            style="color: aqua; font-weight: 900; font-size: x-large"
+            id="discounted-price-advance"
+            >$13.6</s
+          ><br />
+          <i id="billing-advance"
+            >Se facturará $120 por 12 meses de servicio por usuario.</i
+          ><br />
+          <a target="_blank" id="buy-advance" data-plan="advance"
+            ><button>Comprar</button></a
+          >
+          <h4>
+            Transferencia bancaria y PayPal también disponibles - Haga clic aquí
+          </h4>
+          <ul>
+            <li>Todas las funciones son gratuitas</li>
+            <li>Múltiples archivos adjuntos</li>
+            <li>Cronograma</li>
+            <li>Campaña de pausa</li>
+            <li>Enlace de chat empresarial</li>
+            <li>Exportar contactos de chat no guardados</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <script src="prices-list.js"></script>
+  </body>
+</html>
